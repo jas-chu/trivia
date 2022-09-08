@@ -45,7 +45,7 @@ export default function QuizScreen({ navigation }) {
         <View>
           <View style={Styles.square}>
             <Text style={Styles.squareInstructions}>
-              {questions[index]?.question.replace(/&quot;/g, '"')}
+              {questions[index]?.question.replace(/&quot;/g, '"').replace(/&#039;/g, "'")}
             </Text>
           </View>
           <Text style={Styles.counter}>{index + 1} of 10 </Text>
