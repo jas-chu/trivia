@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import FontStyles from '../assets/styles/font';
+import Styles from '../assets/styles/styles';
 import { getQuestions } from '../assets/utils/request';
 import {useNetInfo} from "@react-native-community/netinfo";
 import InternetConnectionLost from '../components/InternetConnectionLost'
@@ -36,20 +36,22 @@ export default function QuizScreen({navigation}) {
   return (
     netInfo.isConnected? (
     loading? <View></View>:
-    <View style={FontStyles.container}>
-      <Text style={FontStyles.header}>{questions[index]?.category} </Text>
-      <View style={FontStyles.square}>
-        <Text style={FontStyles.squareInstructions}>{ questions[index]?.question.replace(/&quot;/g, '"') }</Text>
+    <View style={Styles.container}>
+      <Text style={Styles.header}>{questions[index]?.category} </Text>
+      <View>
+        <View style={Styles.square}>
+          <Text style={Styles.squareInstructions}>{ questions[index]?.question.replace(/&quot;/g, '"') }</Text>
+        </View>
+        <Text style={Styles.counter}>{index + 1} of 10 </Text>
       </View>
-      <Text style={FontStyles.counter}>{index + 1} of 10 </Text>
-      <View style={FontStyles.answer}>
-        <TouchableOpacity style={FontStyles.answerButton} onPress={() => verifyAnswer("True")}>
-          <Text style={[FontStyles.buttonText, FontStyles.green]}>
+      <View style={Styles.answer}>
+        <TouchableOpacity onPress={() => verifyAnswer("True")}>
+          <Text style={[Styles.buttonText, Styles.answerButton, Styles.green]}>
             True
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={FontStyles.answerButton} onPress={() => verifyAnswer("False")}>
-          <Text style={[FontStyles.buttonText, FontStyles.red]}>
+        <TouchableOpacity onPress={() => verifyAnswer("False")}>
+          <Text style={[Styles.buttonText, Styles.answerButton, Styles.red]}>
             False
           </Text>
         </TouchableOpacity>

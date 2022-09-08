@@ -1,20 +1,20 @@
 import { Text, TouchableOpacity, View } from 'react-native';
-import FontStyles from '../assets/styles/font';
+import Styles from '../assets/styles/styles';
 
 export default function ResultScreen({route, navigation}) {
   const { score, answers } = route.params
   return (
-    <View style={FontStyles.container}>
-      <Text style={FontStyles.header}>{`You scored ${score} / 10`} </Text>
+    <View style={Styles.container}>
+      <Text style={Styles.header}>{`You scored ${score} / 10`} </Text>
       <View>
         {answers && answers.map(((item, index) => 
-        <View style={FontStyles.resultItem} key={index}>
-          <Text style={FontStyles.question}>{item.correct? '+' : '-'}</Text>
-          <Text style={FontStyles.question}>{item.question.replace(/&quot;/g, '"')}</Text>
+        <View style={Styles.resultItem} key={index}>
+          <Text style={Styles.question}>{item.correct? '+' : '-'}</Text>
+          <Text style={Styles.question}>{item.question.replace(/&quot;/g, '"')}</Text>
         </View>))}
       </View>
-      <TouchableOpacity styles={FontStyles.button} onPress={()=> navigation.navigate('Home')}>
-        <Text style={FontStyles.buttonText}>
+      <TouchableOpacity styles={Styles.button} onPress={()=> navigation.navigate('Home')}>
+        <Text style={Styles.buttonText}>
           PLAY AGAIN?
         </Text>
       </TouchableOpacity>

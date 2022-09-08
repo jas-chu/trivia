@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const FontStyles = StyleSheet.create({
+const Styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -9,14 +9,12 @@ const FontStyles = StyleSheet.create({
     padding: 20
   },
   header: {
-    // flex: 1,
     fontWeight: 'bold',
     fontSize: 26,
     textAlign: 'center',
     paddingTop: 20
   },
   instructions: {
-    // flex: 1,
     fontSize: 24,
     textAlign: 'center',
   },
@@ -24,11 +22,11 @@ const FontStyles = StyleSheet.create({
     height: '70%',
   },
   square: {
-    // flex: 2,
     borderColor: 'black',
     borderWidth: 1,
-    width: '90%',
-    height: '40%',
+    minWidth: '90%',
+    minHeight: '45%',
+    marginTop: '20%',
     justifyContent: 'center'
   },
   squareInstructions: {
@@ -58,8 +56,7 @@ const FontStyles = StyleSheet.create({
     flexDirection: "row",
   },
   answerButton: {
-    flex: 1,
-    alignContent: "center"
+    padding: 20
   },
   red: {
     color: 'red',
@@ -69,4 +66,4 @@ const FontStyles = StyleSheet.create({
   },
 });
 
-export default FontStyles
+export default Styles
