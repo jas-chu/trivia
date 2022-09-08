@@ -6,7 +6,9 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "check-format": "prettier --check \"**/*.{js,json}\"",
+    "format": "prettier --write \"**/*.{js,json}\""
   },
   "dependencies": {
     "@react-native-community/netinfo": "^9.3.0",

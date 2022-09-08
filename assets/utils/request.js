@@ -1,14 +1,14 @@
-const url = "https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean"
+const url = 'https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean';
 
 function createRequest(url) {
   let requestOptions = {
     method: 'GET',
     headers: {
-      'Accept': 'application/json',
+      Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-  }
-  return new Request(url, requestOptions)
+  };
+  return new Request(url, requestOptions);
 }
 
 function fetchPromise(request) {
@@ -17,23 +17,23 @@ function fetchPromise(request) {
       .then((response) => {
         if (response.status === 200) {
           response.json().then((responseJson) => {
-            resolve(responseJson)
-          })
+            resolve(responseJson);
+          });
         } else if (response.status === 408) {
-          reject('networkError')
+          reject('networkError');
         } else {
-          reject('serverError')
+          reject('serverError');
         }
       })
       .catch(() => {
-        reject('serverError')
-      })
-  })
+        reject('serverError');
+      });
+  });
 }
 
-export function getQuestions(){
+export function getQuestions() {
   return new Promise((resolve, _) => {
-    let request = createRequest(url)
-    resolve(fetchPromise(request))
-  })
+    let request = createRequest(url);
+    resolve(fetchPromise(request));
+  });
 }

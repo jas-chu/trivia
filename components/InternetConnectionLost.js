@@ -6,7 +6,7 @@ export default function InternetConnectionLost() {
       <Text style={styles.text}>No internet Connection</Text>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -15,6 +15,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    fontSize: 18
-  }
-})
+    fontSize: 18,
+  },
+});
