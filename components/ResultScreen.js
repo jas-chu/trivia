@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import Styles from '../assets/styles/styles';
 
 export default function ResultScreen({ route, navigation }) {
@@ -6,15 +6,15 @@ export default function ResultScreen({ route, navigation }) {
   return (
     <View style={Styles.container}>
       <Text style={Styles.header}>{`You scored ${score} / 10`} </Text>
-      <View>
+      <ScrollView>
         {answers &&
           answers.map((item, index) => (
             <View style={Styles.resultItem} key={index}>
               <Text style={Styles.question}>{item.correct ? '+' : '-'}</Text>
-              <Text style={Styles.question}>{item.question.replace(/&quot;/g, '"')}</Text>
+              <Text style={Styles.question}>{item.question.replace(/&quot;/g, '"').replace(/&#039;/g, "'")}</Text>
             </View>
           ))}
-      </View>
+      </ScrollView>
       <TouchableOpacity styles={Styles.button} onPress={() => navigation.navigate('Home')}>
         <Text style={Styles.buttonText}>PLAY AGAIN?</Text>
       </TouchableOpacity>
